@@ -3470,7 +3470,7 @@ input, select, textarea {
 
 			#intro {
 				padding: 3rem 2rem 1rem 2rem ;
-				min-height: 60vh;
+				min-height: 50vh;
 			}
 
 				#intro h1 {
@@ -3605,8 +3605,8 @@ input, select, textarea {
 			padding: 5vh 0 !important; /* 内側の余白も画面の割合で設定 */
 			
 			/* 2. 外側の押し下げは、やりすぎると画面外に逃げるので少し控えめに */
-			margin-top: 10vh !important; 
-			margin-bottom: 10vh !important;
+			margin-top: 0vh !important; 
+			margin-bottom: 0vh !important;
 			
 			/* 3. スマホの横幅に合わせて文字サイズを最適化 */
 			font-size: 1.5rem;
@@ -3623,7 +3623,7 @@ input, select, textarea {
 		}
 
 			#header {
-				height: 60vh;
+				height: 55vh;
 				padding-bottom: 8rem;
 			}
 
@@ -3633,7 +3633,7 @@ input, select, textarea {
 
 			#header {
 				/* 1. ヘッダーをスマホ画面いっぱいの高さにする */
-				min-height: 90vh; 
+				min-height: 70vh; 
 				display: flex;
 				flex-direction: column;
 				justify-content: center; /* 垂直方向に中央寄せ */
@@ -3641,6 +3641,9 @@ input, select, textarea {
 			}
 
 			#header .logo {
+				/* 1. スマホの「画面の高さ（vh）」を基準にしてたっぷり余白を取る */
+				min-height: 35vh;          /* 画面の35%分の高さを確保 */
+				padding: 5vh 0 !important; /* 内側の余白も画面の割合で設定 */
 				/* 2. ロゴ単体のマージンをリセット（親のFlexboxで中央制御するため） */
 				margin: 0 !important;
 				padding: 2rem !important;
