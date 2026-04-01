@@ -3453,7 +3453,7 @@ input, select, textarea {
 
 			#intro {
 				padding: 4rem 4rem 2rem 4rem ;
-				min-height: 100vh;
+				min-height: 80vh;
 			}
 
 				#intro p br {
@@ -3470,7 +3470,7 @@ input, select, textarea {
 
 			#intro {
 				padding: 3rem 2rem 1rem 2rem ;
-				min-height: 100vh;
+				min-height: 60vh;
 			}
 
 				#intro h1 {
@@ -3515,7 +3515,7 @@ input, select, textarea {
 		-webkit-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
-		height: 100vh;
+		height: 90vh;
 		padding-bottom: 0rem;
 		position: relative;
 		text-align: center;
@@ -3599,10 +3599,32 @@ input, select, textarea {
 			}
 
 		@media screen and (max-width: 980px) {
+			#header .logo {
+			/* 1. スマホの「画面の高さ（vh）」を基準にしてたっぷり余白を取る */
+			min-height: 35vh;          /* 画面の35%分の高さを確保 */
+			padding: 5vh 0 !important; /* 内側の余白も画面の割合で設定 */
+			
+			/* 2. 外側の押し下げは、やりすぎると画面外に逃げるので少し控えめに */
+			margin-top: 10vh !important; 
+			margin-bottom: 10vh !important;
+			
+			/* 3. スマホの横幅に合わせて文字サイズを最適化 */
+			font-size: 1.5rem;
+			line-height: 1.6;
+			letter-spacing: 0.15em;
+		}
+
+		#header .logo strong {
+			font-size: 1.3em;
+		}
+		
+		#intro + #header .logo {
+			transform: translateY(10vh); /* 浮き上がる距離も画面に合わせて調整 */
+		}
 
 			#header {
-				height: 14rem;
-				padding-bottom: 4rem;
+				height: 60vh;
+				padding-bottom: 8rem;
 			}
 
 		}
@@ -3610,13 +3632,35 @@ input, select, textarea {
 		@media screen and (max-width: 736px) {
 
 			#header {
-				padding-bottom: 3rem;
+				/* 1. ヘッダーをスマホ画面いっぱいの高さにする */
+				min-height: 90vh; 
+				display: flex;
+				flex-direction: column;
+				justify-content: center; /* 垂直方向に中央寄せ */
+				align-items: center;     /* 水平方向に中央寄せ（Introと同じ位置にするなら） */
 			}
 
-				#header .logo {
-					font-size: 1.75rem;
-					border-width: 3px !important;
-				}
+			#header .logo {
+				/* 2. ロゴ単体のマージンをリセット（親のFlexboxで中央制御するため） */
+				margin: 0 !important;
+				padding: 2rem !important;
+				
+				/* 3. 文字の揃えを「中央」にする（Introが中央なら、ここも中央が美しいです） */
+				align-items: center;
+				text-align: center;
+				
+				/* 4. スマホ用のフォントサイズ微調整 */
+				font-size: 1.4rem;
+				line-height: 1.6;
+				letter-spacing: 0.12em;
+				border: none !important; /* 枠なしを維持 */
+			}
+
+			#header .logo strong {
+				font-size: 1.3em;
+				/*display: block;  スマホでは強調文字を改行させると読みやすくなります */
+				margin-top: 0.5rem;
+			}
 
 		}
 
